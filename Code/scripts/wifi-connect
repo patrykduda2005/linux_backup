@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+nmcli device wifi rescan;
+nmcli device wifi;
+
+wifi=$(nmcli device wifi | awk '{if ($1 != "IN-USE" && $1 != "*") print $2}' | dmenu -p "Wybierz wifi");
+read password;
+
+nmcli device wifi connect $wifi password $password;
+
+#nmcli device wifi | awk '{for(i=2; i<=NF; i++) if($i=="Infra")break;else printf $i" "}'

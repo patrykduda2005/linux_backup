@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+from=$(($2*60+$3))
+to=$(($4*60+$5))
+duration=$(($to-$from))
+
+form=".mkv"
+new=$1
+new=${new%"$form"}
+new=$new"_cut.mkv"
+
+ffmpeg -i $1 -ss $from -t $duration ${new}

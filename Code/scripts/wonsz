@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+cd ~/Code/git/wonsz
+kitty --hold npm run watch &
