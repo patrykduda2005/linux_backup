@@ -24,7 +24,7 @@ call plug#begin('~/.vim/plugged')
     endif
 
 
-    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } "Uzywam jako fuzzy finder ale ma duzo innych zastosowan i jest mocno customizowalny
+    Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.3'} "Uzywam jako fuzzy finder ale ma duzo innych zastosowan i jest mocno customizowalny
         Plug 'nvim-lua/plenary.nvim' "Telescope tego potrzebuje
         Plug 'sharkdp/fd' "Finder do telescope'a
     Plug 'alvan/vim-closetag' "Automatycznie zamyka tagi w html'u
@@ -38,7 +38,7 @@ call plug#begin('~/.vim/plugged')
             Plug 'hrsh7th/cmp-buffer'
             Plug 'hrsh7th/cmp-path'
         Plug 'saadparwaiz1/cmp_luasnip'
-        Plug 'L3MON4D3/LuaSnip'
+        Plug 'L3MON4D3/LuaSnip', {'tag': 'v<CurrentMajor>.*', 'do': 'make install_jsregexp'} " Replace <CurrentMajor> by the latest released major (first number of latest release)
     Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
@@ -57,6 +57,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "kolorki
     "Plug 'norcalli/nvim-colorizer.lua' "kody kolorkowe
     Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
+    Plug 'mattn/emmet-vim'
+    Plug 'edKotinsky/Arduino.nvim'
+    Plug 'dart-lang/dart-vim-plugin'
 call plug#end()
 
 lua require('duda/telescope')
@@ -66,7 +69,6 @@ lua require('duda/lsp-zero')
 "set completeopt=menu,menuone,noselect
 "lua require('duda/nvim-cmp')
 lua require('neoscroll').setup()
-lua require('mason').setup()
 "lua require('colorizer').setup()
 lua << EOF
   require'nvim-treesitter.configs'.setup {
@@ -87,7 +89,6 @@ lua << EOF
     },
   }
 EOF
- 
 
 colorscheme oceanic_material
 
@@ -97,16 +98,20 @@ let mapleader = " "
 nnoremap <Leader>i i_<ESC>r
 nnoremap <Leader>a a_<ESC>r
 nnoremap <silent> <C-p> :Telescope find_files<CR>
-nnoremap <Leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-inoremap kj <ESC>
-cnoremap kj <ESC>
+nnoremap <silent> <Leader>n :NERDTreeFocus<CR>
+nnoremap <silent> <C-n> :NERDTree<CR>
+nnoremap <silent> <C-t> :NERDTreeToggle<CR>
+nnoremap <silent> <C-f> :NERDTreeFind<CR>
+nnoremap <Leader>y "+y
+xnoremap <Leader>y "+y
+nnoremap <C-c> <ESC>
 
 "NERDTree rebindings
 let NERDTreeMapUpdir='h'
 let NERDTreeMapCustomOpen='l'
+
+let g:user_emmet_leader_key='<Leader>'
+let g:user_emmet_mode='n'
 
 "Coc keybindings
 "nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -118,9 +123,12 @@ let NERDTreeMapCustomOpen='l'
 "    endif
 "endfunction
 
-autocmd! BufNewFile,BufRead *cs nnoremap <F5> :!kitty --hold dotnet run &<CR>
-autocmd! BufNewFile,BufRead *ts nnoremap <F5> :!npm run build<CR>
-autocmd! BufNewFile,BufRead *rs nnoremap <F5> :!kitty --hold cargo run<CR>
+autocmd TermOpen * startinsert
+autocmd! BufNewFile,BufRead *cs nnoremap <silent> <F5> :split \| te dotnet run<CR>
+autocmd! BufNewFile,BufRead *ts nnoremap <silent> <F5> :split \| te npm run build<CR>
+autocmd! BufNewFile,BufRead *rs nnoremap <silent> <F5> :split \| te cargo run<CR>
+autocmd! BufNewFile,BufRead *cpp nnoremap <silent> <F5> :split \| te make && ./exe<CR>
+autocmd! BufNewFile,BufRead *c nnoremap <silent> <F5> :split \| te gcc % -o exe && ./exe<CR>
 
 "Set nvim background as same as terminal's
 hi Normal ctermbg=none 
