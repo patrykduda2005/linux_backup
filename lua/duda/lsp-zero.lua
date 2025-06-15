@@ -20,6 +20,21 @@ lsp.on_attach(on_attach);
 --        end
 --    })
 --end
+--lsp_config.arduino_language_server.setup {
+--    on_attach = on_attach,
+--    cmd = {
+--        "/home/duda/.local/share/nvim/mason/bin/arduino-language-server",
+--        "-fqbn",
+--        "arduino:avr:uno"
+--    }
+--}
+lsp_config.clangd.setup {
+    on_attach = on_attach,
+    cmd = {
+        "/home/duda/.local/share/nvim/mason/bin/clangd",
+        "--compile-commands-dir=" .. vim.loop.cwd()
+    }
+}
 lsp_config["dartls"].setup({
     on_attach = on_attach,
 })

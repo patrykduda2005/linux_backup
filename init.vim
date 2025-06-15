@@ -12,7 +12,6 @@ set smartcase
 set ignorecase
 set incsearch
 set scrolloff=8
-"set termguicolors
 au TextYankPost * silent! lua vim.highlight.on_yank()
 
 call plug#begin('~/.vim/plugged')
@@ -55,16 +54,26 @@ call plug#begin('~/.vim/plugged')
     Plug 'rafi/awesome-vim-colorschemes'
     Plug 'rubixninja314/vim-mcfunction' "minecraft
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "kolorki
-    "Plug 'norcalli/nvim-colorizer.lua' "kody kolorkowe
+    Plug 'norcalli/nvim-colorizer.lua' "kody kolorkowe
     Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
     Plug 'mattn/emmet-vim'
-    Plug 'edKotinsky/Arduino.nvim'
     Plug 'dart-lang/dart-vim-plugin'
+    Plug 'ThePrimeagen/harpoon', {'branch': 'harpoon2'}
+    Plug 'derektata/lorem.nvim'
+    Plug 'elkowar/yuck.vim'
+    Plug 'eraserhd/parinfer-rust', {'do':
+        \  'cargo build --release'}
+    Plug 'nvim-orgmode/orgmode'
+    Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
 
 lua require('duda/telescope')
 lua require('duda/debugcfg')
 lua require('duda/lsp-zero')
+lua require('duda/harpoon')
+
+
+lua require('lorem').setup({ sentenceLength = "mixedShort",comma = 0.1})
 "lua require('duda/lspconfig')
 "set completeopt=menu,menuone,noselect
 "lua require('duda/nvim-cmp')
@@ -89,14 +98,17 @@ lua << EOF
     },
   }
 EOF
+lua << EOF
+
+require('orgmode').setup()
+
+EOF
 
 colorscheme oceanic_material
 
 
 let mapleader = " "
 "inoremap <Leader>; <ESC>A;<ESC>
-nnoremap <Leader>i i_<ESC>r
-nnoremap <Leader>a a_<ESC>r
 nnoremap <silent> <C-p> :Telescope find_files<CR>
 nnoremap <silent> <Leader>n :NERDTreeFocus<CR>
 nnoremap <silent> <C-n> :NERDTree<CR>
@@ -105,6 +117,18 @@ nnoremap <silent> <C-f> :NERDTreeFind<CR>
 nnoremap <Leader>y "+y
 xnoremap <Leader>y "+y
 nnoremap <C-c> <ESC>
+
+nnoremap <silent> <leader>a :lua require('harpoon'):list():add()<CR>
+nnoremap <silent> <leader>r :lua require('harpoon'):list():remove()<CR>
+nnoremap <silent> <C-e> :lua require('harpoon').ui:toggle_quick_menu(require('harpoon'):list())<CR>
+
+nnoremap <silent> <C-h> :lua require('harpoon'):list():select(1)<CR>
+nnoremap <silent> <C-j> :lua require('harpoon'):list():select(2)<CR>
+nnoremap <silent> <C-k> :lua require('harpoon'):list():select(3)<CR>
+nnoremap <silent> <C-l> :lua require('harpoon'):list():select(4)<CR>
+
+nnoremap <silent> <C-S-P> :lua require('harpoon'):list():prev()<CR>
+nnoremap <silent> <C-S-N> :lua require('harpoon'):list():next()<CR>
 
 "NERDTree rebindings
 let NERDTreeMapUpdir='h'
@@ -127,8 +151,13 @@ autocmd TermOpen * startinsert
 autocmd! BufNewFile,BufRead *cs nnoremap <silent> <F5> :split \| te dotnet run<CR>
 autocmd! BufNewFile,BufRead *ts nnoremap <silent> <F5> :split \| te npm run build<CR>
 autocmd! BufNewFile,BufRead *rs nnoremap <silent> <F5> :split \| te cargo run<CR>
-autocmd! BufNewFile,BufRead *cpp nnoremap <silent> <F5> :split \| te make && ./exe<CR>
-autocmd! BufNewFile,BufRead *c nnoremap <silent> <F5> :split \| te gcc % -o exe && ./exe<CR>
+autocmd! BufNewFile,BufRead *cpp nnoremap <silent> <F5> :split \| te make -j8 && ./exe<CR>
+autocmd! BufNewFile,BufRead *py nnoremap <silent> <F5> :split \| te python3 main.py<CR>
+autocmd! BufNewFile,BufRead *lua nnoremap <silent> <F5> :split \| te lua main.lua<CR>
+autocmd! BufNewFile,BufRead *hs nnoremap <silent> <F5> :split \| te cabal run<CR>
+autocmd! BufNewFile,BufRead *c nnoremap <silent> <F5> :split \| te make -j8 && ./exe<CR>
+autocmd! BufNewFile,BufRead *html nnoremap <C-F5> :!firefox --new-tab %
 
 "Set nvim background as same as terminal's
 hi Normal ctermbg=none 
+highlight Normal guibg=none
