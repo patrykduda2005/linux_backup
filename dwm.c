@@ -2723,7 +2723,7 @@ tagspawn(const Arg *arg)
             sprintf(index, "%d", i);
             char monindex[2];
             sprintf(monindex, "%d", selmon->num);
-            char *script[] = {"/home/duda/Code/scripts/tagspawn.sh", index, monindex, NULL};
+            char *script[] = {tagspawnscript, index, monindex, NULL};
             const Arg a = {.v = script};
 			spawn(&a);
 		}
