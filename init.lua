@@ -13,6 +13,7 @@ vim.opt.smartcase      = true
 vim.opt.ignorecase     = true
 vim.opt.incsearch      = true
 vim.opt.scrolloff      = 8
+vim.opt.colorcolumn    = {80}
 vim.g.mapleader        = " "
 vim.g.maplocalleader   = "\\"
 vim.diagnostic.config({
@@ -28,7 +29,7 @@ require("duda/fzf")
 require("duda/treesitter")
 require("duda/lsp")
 
-vim.cmd("colorscheme oceanic_material")
+vim.cmd("colorscheme lucid")
 
 vim.keymap.set({ "n", "x" }, "<Leader>y", "\"+y")
 vim.keymap.set("i", "<C-c>", "<ESC>")
