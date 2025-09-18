@@ -15,7 +15,7 @@ require("blink.cmp").setup({
             if cmp.is_menu_visible() then
                 return cmp.select_next()
             else
-                return cmp.show_and_insert()
+                return cmp.show()
             end
         end, "fallback" },
 

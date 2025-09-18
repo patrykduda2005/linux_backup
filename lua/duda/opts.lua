@@ -14,6 +14,7 @@ vim.opt.ignorecase     = true
 vim.opt.incsearch      = true
 vim.opt.scrolloff      = 8
 vim.opt.scl            = "yes"
+vim.opt.spr            = true
 vim.opt.colorcolumn    = { 80 }
 vim.g.mapleader        = " "
 vim.g.maplocalleader   = "\\"
