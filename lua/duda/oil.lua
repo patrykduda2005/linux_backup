@@ -1,13 +1,16 @@
 require("oil").setup({
     view_options = {
-        show_hidden = true
+        show_hidden = true,
+    },
+    preview_win = {
+        preview_method = "fast_scratch",
     },
     use_default_keymaps = false,
     keymaps = {
         ["g?"] = { "actions.show_help", mode = "n" },
         ["<CR>"] = "actions.select",
         ["l"] = { "actions.select", mode = "n" },
-        ["<C-p>"] = "actions.preview",
+        ["gp"] = "actions.preview",
         ["<C-c>"] = { "actions.close", mode = "n" },
         ["<C-t>"] = { "actions.close", mode = "n" },
         ["<C-l>"] = "actions.refresh",

@@ -5,13 +5,19 @@ require("blink.cmp").setup({
         preset = "none",
 
         ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-        ["<C-e>"] = { "hide", "fallback" },
         ["<C-y>"] = { "select_and_accept", "fallback" },
+        ["<C-q>"] = { "cancel", "fallback" },
 
         ["<Up>"] = { "select_prev", "fallback" },
         ["<Down>"] = { "select_next", "fallback" },
         ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
-        ["<C-n>"] = { "select_next", "fallback_to_mappings" },
+        ["<C-n>"] = { function (cmp)
+            if cmp.is_menu_visible() then
+                return cmp.select_next()
+            else
+                return cmp.show_and_insert()
+            end
+        end, "fallback" },
 
         ["<C-b>"] = { "scroll_documentation_up", "fallback" },
         ["<C-f>"] = { "scroll_documentation_down", "fallback" },
@@ -22,7 +28,24 @@ require("blink.cmp").setup({
         ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
     },
 
-    completion = { documentation = { auto_show = false } },
+    completion = {
+        ghost_text = {
+            enabled = true,
+            show_without_menu = true,
+        },
+        menu = {
+            auto_show = false
+        },
+        list = {
+            selection = {
+                preselect = true,
+                auto_insert = true,
+            }
+        },
+        documentation = {
+            auto_show = true,
+        },
+    },
 
     sources = {
         default = { "lazydev", "lsp", "path", "snippets", "buffer" },
@@ -46,6 +69,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 })
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
         vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
+        vim.keymap.set("n", "ge", vim.diagnostic.open_float, { buffer = 0 })
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0 })
         vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { buffer = 0 })
     end,
