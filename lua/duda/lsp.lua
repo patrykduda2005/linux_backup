@@ -11,7 +11,7 @@ require("blink.cmp").setup({
         ["<Up>"] = { "select_prev", "fallback" },
         ["<Down>"] = { "select_next", "fallback" },
         ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
-        ["<C-n>"] = { function (cmp)
+        ["<C-n>"] = { function(cmp)
             if cmp.is_menu_visible() then
                 return cmp.select_next()
             else
@@ -44,8 +44,25 @@ require("blink.cmp").setup({
         },
         documentation = {
             auto_show = true,
+            window = {
+                border = "rounded"
+            },
+        },
+        accept = {
+            auto_brackets = {
+                enabled = true,
+            },
         },
     },
+
+    signature = {
+        enabled = true,
+        window = {
+            border = "rounded",
+            direction_priority = { "s", "n" },
+        },
+    },
+
 
     sources = {
         default = { "lazydev", "lsp", "path", "snippets", "buffer" },
@@ -64,12 +81,13 @@ require("blink.cmp").setup({
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("my.lsp", {}),
     callback = function()
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+        vim.keymap.set("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, { buffer = 0 })
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
         vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 })
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
         vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
-        vim.keymap.set("n", "ge", vim.diagnostic.open_float, { buffer = 0 })
+        vim.keymap.set("n", "gf", vim.lsp.buf.code_action, { buffer = 0 })
+        vim.keymap.set("n", "ge", function() vim.diagnostic.open_float({ border = "rounded" }) end, { buffer = 0 })
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0 })
         vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { buffer = 0 })
     end,

@@ -25,9 +25,9 @@ vim.diagnostic.config({
     virtual_text = true,
     float = true,
     signs = true,
+    underline = true,
 })
 
-vim.api.nvim_set_hl(0, "ColorColumn", { link = "StatusLine" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
