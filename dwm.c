@@ -348,6 +348,7 @@ static Cur *cursor[CurLast];
 static Clr **scheme;
 static Display *dpy;
 static Drw *drw;
+static Picture barpic;
 static Monitor *mons, *selmon;
 static Swallow *swallows;
 static Window root, wmcheckwin;
@@ -1003,6 +1004,7 @@ drawbar(Monitor *m)
 	int boxw = drw->fonts->h / 6 + 2;
 	unsigned int i, occ = 0, urg = 0, n = 0;
 	Client *c;
+    //drw_pic(drw, 0, 0, 1366, 20, barpic);
 
 	if (!m->showbar)
 		return;
@@ -1097,6 +1099,8 @@ drawbar(Monitor *m)
 		}
 		drw_setscheme(drw, scheme[SchemeNorm]);
 		drw_rect(drw, x, 0, w, bh, 1, 1);
+		drw_setscheme(drw, scheme[SchemeSel]);
+		drw_rect(drw, 0, 0, m->mw, 1, 1, 1);
 	}
     m->bt = n;
     drw_map(drw, m->barwin, 0, 0, m->ww, bh);
@@ -2296,6 +2300,7 @@ setup(void)
 	XChangeWindowAttributes(dpy, root, CWEventMask|CWCursor, &wa);
 	XSelectInput(dpy, root, wa.event_mask);
 	grabkeys();
+    //barpic = drw_picture_create_resized(drw, "/opt/dwm/bar.png", 100, 100, 100, 100);
 	focus(NULL);
 }
 
