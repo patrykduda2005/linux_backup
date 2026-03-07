@@ -1,0 +1,1 @@
+((el-easydraw :fetcher git :url "https://github.com/misohena/el-easydraw.git") (org-krita :fetcher git :url "https://github.com/lepisma/org-krita.git") (org-xournalpp :fetcher gitlab :repo "vherrmann/org-xournalpp" :files ("*.el" "resources")) (quelpa :repo "quelpa/quelpa" :fetcher github))

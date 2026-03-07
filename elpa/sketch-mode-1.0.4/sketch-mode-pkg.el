@@ -1,0 +1,2 @@
+;; Generated package description from sketch-mode.el  -*- no-byte-compile: t -*-
+(define-package "sketch-mode" "1.0.4" "Quickly create svg sketches using keyboard and mouse" 'nil :commit "ff42a587d90f9cfd3481db6f4e9a269e3a9300cd" :authors '(("D.L. Nicolai" . "dalanicolai@gmail.com")) :maintainer '("D.L. Nicolai" . "dalanicolai@gmail.com") :keywords '("multimedia") :url "https://github.com/dalanicolai/sketch-mode")
