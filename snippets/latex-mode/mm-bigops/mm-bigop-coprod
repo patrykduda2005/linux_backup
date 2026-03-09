@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: coprod
-# key: cprod
-# group: Math Big Operators
-# condition: (yas-texmathp)
-# --
-\coprod_{$1}$0

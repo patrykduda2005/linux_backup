@@ -1,2 +1,0 @@
-# Generated file.  Will be overwritten without warning.
-#+INCLUDE: "/home/duda/.config/emacs/elpa/emacs-reveal/oer-reveal/org/bibliography.org"

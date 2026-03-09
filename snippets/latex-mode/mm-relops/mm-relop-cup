@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: cup
-# key: cup
-# group: Math Relations
-# condition: (yas-texmathp)
-# --
-\cup $0

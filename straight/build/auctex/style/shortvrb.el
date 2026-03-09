@@ -1,0 +1,1 @@
+/home/duda/.emacs.d/straight/repos/auctex/style/shortvrb.el

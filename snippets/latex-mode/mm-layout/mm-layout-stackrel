@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: stackrel
-# key: srel
-# group: Math Layout
-# condition: (yas-texmathp)
-# --
-\stackrel{$1}{$0}

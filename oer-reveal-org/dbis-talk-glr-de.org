@@ -1,2 +1,0 @@
-# Generated file.  Will be overwritten without warning.
-#+REVEAL_TITLE_SLIDE: /home/duda/.config/emacs/elpa/emacs-reveal/oer-reveal/title-slide/dbis-talk-glr-de.html

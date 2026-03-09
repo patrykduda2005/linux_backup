@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: cong
-# key: ~=
-# group: Math Relations
-# condition: (yas-texmathp)
-# --
-\cong $0

@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: gg
-# key: >>
-# group: Math Relations
-# condition: (yas-texmathp)
-# --
-\gg $0

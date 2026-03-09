@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: succ
-# key: >-
-# group: Math Relations
-# condition: (yas-texmathp)
-# --
-\succ $0

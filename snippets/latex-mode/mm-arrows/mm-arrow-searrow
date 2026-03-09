@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: searrow
-# key: searr
-# group: Math Arrows
-# condition: (yas-texmathp)
-# --
-\searrow$0
