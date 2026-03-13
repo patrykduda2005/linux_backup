@@ -23,11 +23,12 @@ vim.opt.termguicolors  = true --Needed by colorizer
 vim.diagnostic.config({
     virtual_lines = false,
     virtual_text = true,
-    float = true,
+    float = {
+        border = "rounded",
+    },
     signs = true,
     underline = true,
 })
-
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()

@@ -1,3 +1,5 @@
+-- Config written in Neovim 0.11.4
+
 require("duda/opts")
 require("duda/lazy")
 
@@ -15,4 +17,6 @@ require("duda/lsp")
 
 
 vim.keymap.set({ "n", "x" }, "<Leader>y", "\"+y")
-vim.keymap.set("i", "<C-c>", "<ESC>")
+vim.keymap.set("i", "<C-c>", function ()
+    print("<C-[> baranie!")
+end)

@@ -12,6 +12,8 @@ require("oil").setup({
         ["l"] = { "actions.select", mode = "n" },
         ["gp"] = "actions.preview",
         ["<C-c>"] = { "actions.close", mode = "n" },
+        ["<C-[>"] = { "actions.close", mode = "n" },
+        ["<Esc>"] = { "actions.close", mode = "n" },
         ["<C-t>"] = { "actions.close", mode = "n" },
         ["<C-l>"] = "actions.refresh",
         ["-"] = { "actions.parent", mode = "n" },

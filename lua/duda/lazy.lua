@@ -36,6 +36,11 @@ require("lazy").setup({
           vim.g.user_emmet_leader_key = "<Leader>"
           vim.g.user_emmet_mode = "n"
       end},
+      {
+          "seblyng/roslyn.nvim",
+          opts = {},
+      },
+      { "subnut/nvim-ghost.nvim" }
   },
   checker = { enabled = false },
 })

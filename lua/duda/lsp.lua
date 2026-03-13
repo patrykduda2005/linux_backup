@@ -1,4 +1,9 @@
-require("mason").setup()
+require("mason").setup({
+    registries = {
+        "github:mason-org/mason-registry",
+        "github:Crashdummyy/mason-registry",
+    },
+})
 require("mason-lspconfig").setup()
 require("blink.cmp").setup({
     keymap = {
@@ -85,9 +90,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
         vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 })
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
         vim.keymap.set("n", "gf", vim.lsp.buf.code_action, { buffer = 0 })
-        vim.keymap.set("n", "ge", function() vim.diagnostic.open_float({ border = "rounded" }) end, { buffer = 0 })
+        vim.keymap.set("n", "ge", vim.diagnostic.open_float, { buffer = 0 })
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0 })
         vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { buffer = 0 })
     end,
