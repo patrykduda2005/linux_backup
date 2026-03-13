@@ -19,6 +19,8 @@ vim.opt.colorcolumn    = { 80 }
 vim.g.mapleader        = " "
 vim.g.maplocalleader   = "\\"
 vim.opt.termguicolors  = true --Needed by colorizer
+vim.opt.list           = true
+vim.opt.listchars      = "tab:⎸ "
 
 vim.diagnostic.config({
     virtual_lines = false,
