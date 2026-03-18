@@ -110,3 +110,15 @@ vim.lsp.config.clangd = {
         "--function-arg-placeholders=0",
     },
 }
+
+vim.lsp.config.rust_analyzer = {
+    settings = {
+        ["rust-analyzer"] = {
+            completion = {
+                callable = {
+                    snippets = "add_parentheses",
+                },
+            },
+        },
+    },
+}
