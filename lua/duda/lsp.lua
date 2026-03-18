@@ -1,11 +1,15 @@
+-- Lsp's install manager
 require("mason").setup({
     registries = {
         "github:mason-org/mason-registry",
         "github:Crashdummyy/mason-registry",
     },
 })
+-- Sample lsp configs
 require("mason-lspconfig").setup()
+-- Completion
 require("blink.cmp").setup({
+    -- Auto completion Keybindings
     keymap = {
         preset = "none",
 
@@ -83,6 +87,7 @@ require("blink.cmp").setup({
     fuzzy = { implementation = "prefer_rust_with_warning" }
 })
 
+-- Lsp Keybindings
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("my.lsp", {}),
     callback = function()
@@ -97,3 +102,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { buffer = 0 })
     end,
 })
+
+-- LspConfig overrides
+vim.lsp.config.clangd = {
+    cmd = {
+        "clangd",
+        "--function-arg-placeholders=0",
+    },
+}
