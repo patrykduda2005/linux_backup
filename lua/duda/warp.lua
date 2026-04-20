@@ -1,0 +1,7 @@
+require("warp").setup({})
+vim.keymap.set("n", "<leader>ha", ":WarpAddFile<cr>", { silent = true })
+vim.keymap.set("n", "<leader>he", ":WarpShowList<cr>", { silent = true })
+vim.keymap.set("n", "<leader>1", ":WarpGoToIndex 1<cr>", { silent = true })
+vim.keymap.set("n", "<leader>2", ":WarpGoToIndex 2<cr>", { silent = true })
+vim.keymap.set("n", "<leader>3", ":WarpGoToIndex 3<cr>", { silent = true })
+vim.keymap.set("n", "<leader>4", ":WarpGoToIndex 4<cr>", { silent = true })

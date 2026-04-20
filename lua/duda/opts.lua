@@ -21,6 +21,17 @@ vim.g.maplocalleader   = "\\"
 vim.opt.termguicolors  = true --Needed by colorizer
 vim.opt.list           = true -- Tab render as | thingy
 vim.opt.listchars      = "tab:⎸ "
+vim.opt.foldmethod     = "expr"
+vim.opt.foldexpr       = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable     = false
+vim.opt.foldlevel      = 99
+vim.opt.foldtext       = "v:lua.FoldText()"
+
+function _G.FoldText()
+    local line = vim.fn.getline(vim.v.foldstart)
+    local line_count = vim.v.foldend - vim.v.foldstart + 1
+    return line .. "\t\t\t\t" .. line_count .. " lines"
+end
 
 vim.diagnostic.config({
     virtual_lines = false,

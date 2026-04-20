@@ -40,7 +40,9 @@ require("lazy").setup({
           "seblyng/roslyn.nvim",
           opts = {},
       },
-      { "subnut/nvim-ghost.nvim" }
-  },
+      { "subnut/nvim-ghost.nvim" },
+      { "tpope/vim-sleuth" }, -- tab width detection
+      { "y3owk1n/warp.nvim" },
+    },
   checker = { enabled = false },
 })

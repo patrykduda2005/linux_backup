@@ -13,6 +13,7 @@ require("duda/oil")
 require("duda/fzf")
 require("duda/treesitter")
 require("duda/lsp")
+require("duda/warp")
 
 
 
@@ -20,3 +21,4 @@ vim.keymap.set({ "n", "x" }, "<Leader>y", "\"+y")
 vim.keymap.set("i", "<C-c>", function ()
     print("<C-[> baranie!")
 end)
+vim.keymap.set("n", "<Tab>", "za")
