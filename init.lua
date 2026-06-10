@@ -14,6 +14,7 @@ require("duda/fzf")
 require("duda/treesitter")
 require("duda/lsp")
 require("duda/warp")
+require("duda/lorem")
 
 
 

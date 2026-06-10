@@ -43,6 +43,7 @@ require("lazy").setup({
       { "subnut/nvim-ghost.nvim" },
       { "tpope/vim-sleuth" }, -- tab width detection
       { "y3owk1n/warp.nvim" },
+      { "derektata/lorem.nvim" },
     },
   checker = { enabled = false },
 })

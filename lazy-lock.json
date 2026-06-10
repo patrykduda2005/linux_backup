@@ -5,6 +5,7 @@
   "fzf-lua": { "branch": "main", "commit": "f8cf874c7c78deaddb028b80b7116c50cb53e88d" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "lazydev.nvim": { "branch": "main", "commit": "f59bd14a852ca43db38e3662395354cb2a9b13e0" },
+  "lorem.nvim": { "branch": "main", "commit": "481abe141b123e792bd1931f2335369fbb002018" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "f2fa60409630ec2d24acf84494fb55e1d28d593c" },
   "mason.nvim": { "branch": "main", "commit": "197f6352c276bbc2d25541dfce00ec50d1a4e88f" },
   "nvim-colorizer.lua": { "branch": "master", "commit": "a065833f35a3a7cc3ef137ac88b5381da2ba302e" },
