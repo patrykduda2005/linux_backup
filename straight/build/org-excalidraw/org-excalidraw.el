@@ -1,1 +1,0 @@
-/home/duda/.emacs.d/straight/repos/org-excalidraw/org-excalidraw.el

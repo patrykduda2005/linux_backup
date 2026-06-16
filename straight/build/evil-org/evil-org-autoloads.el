@@ -9,7 +9,30 @@
 
 ;;; Generated autoloads from evil-org.el
 
-(register-definition-prefixes "evil-org" '("clever-insert-item" "evil-org-"))
+(autoload 'evil-org-mode "evil-org" "\
+Buffer local minor mode for evil-org
+
+This is a minor mode.  If called interactively, toggle the `Evil-Org
+mode' mode.  If the prefix argument is positive, enable the mode, and if
+it is zero or negative, disable the mode.
+
+If called from Lisp, toggle the mode if ARG is `toggle'.  Enable the
+mode if ARG is nil, omitted, or is a positive number.  Disable the mode
+if ARG is a negative number.
+
+To check whether the minor mode is enabled in the current buffer,
+evaluate the variable `evil-org-mode'.
+
+The mode's hook is called both when the mode is enabled and when it is
+disabled.
+
+(fn &optional ARG)" t)
+(register-definition-prefixes "evil-org" '("evil-org-"))
+
+
+;;; Generated autoloads from evil-org-agenda.el
+
+(register-definition-prefixes "evil-org-agenda" '("evil-org-agenda-set-keys"))
 
 ;;; End of scraped data
 
