@@ -1,4 +1,8 @@
 #!/usr/bin/sh
+bat1=`cat /sys/class/power_supply/BAT0/capacity`
+bat2=`cat /sys/class/power_supply/BAT1/capacity`
+echo "${bat1} ${bat2} BAT"
+return 
 
 bat=`[ -z $1 ] && cat /sys/class/power_supply/BAT1/capacity | awk '{print $1}' || echo $1`;
 batstatus=`cat /sys/class/power_supply/BAT1/status`

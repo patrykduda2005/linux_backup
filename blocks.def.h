@@ -5,9 +5,9 @@
 
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
-    {"", "sto=`df -h '/home' | tail -1 | awk '{print $3 \"/355G\"}'`; echo \"$sto^c#FFFF00^^d^\"", 10, 0},
-    {"", "gpu=`nvidia-smi | grep '%' | awk '{print $12}'`; echo \"$gpu^c#0Faa0F^^d^\"", 10, 0},
-    {"", "cpu=`top -bn1 | grep Cpu | awk '{print $2\"%\"}'`; echo \"$cpu^c#663399^^d^\"", 10, 0},
+    {"", "sto=`df -h '/home' | tail -1 | awk '{print $3 \"/\" $2}'`; echo \"$sto^c#FFFF00^STO^d^\"", 10, 0},
+//    {"", "gpu=`nvidia-smi | grep '%' | awk '{print $12}'`; echo \"$gpu^c#0Faa0F^^d^\"", 10, 0},
+    {"", "cpu=`top -bn1 | grep Cpu | awk '{print $2\"%\"}'`; echo \"$cpu^c#663399^CPU^d^\"", 10, 0},
 	{"", "ramS="RAMSYMBOL ";ram=`free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g`; echo \"${ram}${ramS}\"",	10,		0},
     {"", SCRIPTS("battery"), 20, 1},
 	{"| ", "date '+%d %b %gr (%a) %H:%M:%S'",					1,		0},
