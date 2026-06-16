@@ -1,1 +1,0 @@
-/home/duda/.emacs.d/straight/repos/auctex/style/babel-german.el

@@ -1,1 +1,0 @@
-/home/duda/.emacs.d/straight/repos/auctex/style/german-austria-1901.el

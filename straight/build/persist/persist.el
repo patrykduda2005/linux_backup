@@ -1,1 +1,0 @@
-/home/duda/.emacs.d/straight/repos/persist/persist.el
